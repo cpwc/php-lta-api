@@ -17,12 +17,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Lta\\": "src"
+      "Lta\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Lta\\Test\\": "tests"
+      "Lta\\Test\\": "tests/"
     }
   },
   "scripts": {

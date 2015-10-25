@@ -2,7 +2,6 @@
 
 namespace Lta\HttpClient;
 
-use Lta\Exception\TwoFactorAuthenticationRequiredException;
 use Guzzle\Http\Client as GuzzleClient;
 use Guzzle\Http\ClientInterface;
 use Guzzle\Http\Message\Request;
@@ -21,13 +20,11 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class HttpClient implements HttpClientInterface
 {
     protected $options = array(
-        'base_url' => 'https://api.github.com/',
+        'base_url' => 'http://datamall2.mytransport.sg/ltaodataservice/',
 
-        'user_agent' => 'php-github-api (http://github.com/KnpLabs/php-github-api)',
+        'user_agent' => 'php-lta-api (https://github.com/cpwc/php-lta-api)',
+        'accept' => 'application/json',
         'timeout' => 10,
-
-        'api_limit' => 5000,
-        'api_version' => 'v3',
 
         'cache_dir' => null
     );
@@ -73,7 +70,7 @@ class HttpClient implements HttpClientInterface
     public function clearHeaders()
     {
         $this->headers = array(
-            'Accept' => sprintf('application/vnd.github.%s+json', $this->options['api_version']),
+            'Accept' => 'application/json',
             'User-Agent' => sprintf('%s', $this->options['user_agent']),
         );
     }
@@ -139,8 +136,6 @@ class HttpClient implements HttpClientInterface
             $response = $this->client->send($request);
         } catch (\LogicException $e) {
             throw new ErrorException($e->getMessage(), $e->getCode(), $e);
-        } catch (TwoFactorAuthenticationRequiredException $e) {
-            throw $e;
         } catch (\RuntimeException $e) {
             throw new RuntimeException($e->getMessage(), $e->getCode(), $e);
         }
@@ -154,10 +149,10 @@ class HttpClient implements HttpClientInterface
     /**
      * {@inheritDoc}
      */
-    public function authenticate($tokenOrLogin, $password = null, $method)
+    public function authenticate($accountKey, $uniqueUserId = null, $method)
     {
         $this->addListener('request.before_send', array(
-            new AuthListener($tokenOrLogin, $password, $method), 'onRequestBeforeSend'
+            new AuthListener($accountKey, $uniqueUserId, $method), 'onRequestBeforeSend'
         ));
     }
 
