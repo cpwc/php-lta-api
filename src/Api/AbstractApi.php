@@ -42,9 +42,6 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function get($path, array $parameters = array(), $requestHeaders = array())
     {
-        if (null !== $this->perPage && !isset($parameters['per_page'])) {
-            $parameters['per_page'] = $this->perPage;
-        }
         if (array_key_exists('ref', $parameters) && is_null($parameters['ref'])) {
             unset($parameters['ref']);
         }
