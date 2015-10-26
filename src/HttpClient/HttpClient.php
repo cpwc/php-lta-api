@@ -20,13 +20,11 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class HttpClient implements HttpClientInterface
 {
     protected $options = array(
-        'base_url' => 'http://datamall2.mytransport.sg/ltaodataservice/',
-
+        'base_url'   => 'http://datamall2.mytransport.sg/ltaodataservice/',
         'user_agent' => 'php-lta-api (https://github.com/cpwc/php-lta-api)',
-        'accept' => 'application/json',
-        'timeout' => 10,
-
-        'cache_dir' => null
+        'accept'     => 'application/json',
+        'timeout'    => 10,
+        'cache_dir'  => null
     );
 
     protected $headers = array();
@@ -35,7 +33,7 @@ class HttpClient implements HttpClientInterface
     private $lastRequest;
 
     /**
-     * @param array $options
+     * @param array           $options
      * @param ClientInterface $client
      */
     public function __construct(array $options = array(), ClientInterface $client = null)
@@ -70,7 +68,7 @@ class HttpClient implements HttpClientInterface
     public function clearHeaders()
     {
         $this->headers = array(
-            'Accept' => 'application/json',
+            'Accept'     => 'application/json',
             'User-Agent' => sprintf('%s', $this->options['user_agent']),
         );
     }
@@ -128,8 +126,13 @@ class HttpClient implements HttpClientInterface
     /**
      * {@inheritDoc}
      */
-    public function request($path, $body = null, $httpMethod = 'GET', array $headers = array(), array $options = array())
-    {
+    public function request(
+        $path,
+        $body = null,
+        $httpMethod = 'GET',
+        array $headers = array(),
+        array $options = array()
+    ) {
         $request = $this->createRequest($httpMethod, $path, $body, $headers, $options);
 
         try {
@@ -152,7 +155,8 @@ class HttpClient implements HttpClientInterface
     public function authenticate($accountKey, $uniqueUserId = null, $method)
     {
         $this->addListener('request.before_send', array(
-            new AuthListener($accountKey, $uniqueUserId, $method), 'onRequestBeforeSend'
+            new AuthListener($accountKey, $uniqueUserId, $method),
+            'onRequestBeforeSend'
         ));
     }
 
@@ -172,8 +176,13 @@ class HttpClient implements HttpClientInterface
         return $this->lastResponse;
     }
 
-    protected function createRequest($httpMethod, $path, $body = null, array $headers = array(), array $options = array())
-    {
+    protected function createRequest(
+        $httpMethod,
+        $path,
+        $body = null,
+        array $headers = array(),
+        array $options = array()
+    ) {
         return $this->client->createRequest(
             $httpMethod,
             $path,

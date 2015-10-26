@@ -27,13 +27,11 @@ class Client
      * @var array
      */
     private $options = array(
-        'base_url' => 'http://datamall2.mytransport.sg/ltaodataservice/',
-
+        'base_url'   => 'http://datamall2.mytransport.sg/ltaodataservice/',
         'user_agent' => 'php-lta-api (https://github.com/cpwc/php-lta-api)',
-        'accept' => 'application/json',
-        'timeout' => 10,
-
-        'cache_dir' => null
+        'accept'     => 'application/json',
+        'timeout'    => 10,
+        'cache_dir'  => null
     );
 
     /**
@@ -78,9 +76,9 @@ class Client
     /**
      * Authenticate a user for all next requests.
      *
-     * @param string $tokenOrLogin GitHub private token/username/client ID
-     * @param null|string $password GitHub password/secret (optionally can contain $authMethod)
-     * @param null|string $authMethod One of the AUTH_* class constants
+     * @param string      $tokenOrLogin GitHub private token/username/client ID
+     * @param null|string $password     GitHub password/secret (optionally can contain $authMethod)
+     * @param null|string $authMethod   One of the AUTH_* class constants
      *
      * @throws InvalidArgumentException If no authentication method was given
      */
@@ -151,7 +149,7 @@ class Client
 
     /**
      * @param string $name
-     * @param mixed $value
+     * @param mixed  $value
      *
      * @throws InvalidArgumentException
      * @throws InvalidArgumentException

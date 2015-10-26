@@ -94,9 +94,9 @@ abstract class AbstractApi implements ApiInterface
     /**
      * Send a POST request with raw data.
      *
-     * @param string $path           Request path.
-     * @param $body                     Request body.
-     * @param array  $requestHeaders Request headers.
+     * @param string $path                     Request path.
+     * @param        $body                     Request body.
+     * @param array  $requestHeaders           Request headers.
      *
      * @return \Guzzle\Http\EntityBodyInterface|mixed|string
      */
