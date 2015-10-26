@@ -12,7 +12,7 @@ class AuthListener
     private $uniqueUserId;
     private $method;
 
-    public function __construct($accountKey, $uniqueUserId = null, $method)
+    public function __construct($accountKey, $uniqueUserId, $method)
     {
         $this->accountKey = $accountKey;
         $this->uniqueUserId = $uniqueUserId;

@@ -76,18 +76,12 @@ class Client
     /**
      * Authenticate a user for all next requests.
      *
-     * @param string      $tokenOrLogin GitHub private token/username/client ID
-     * @param null|string $password     GitHub password/secret (optionally can contain $authMethod)
+     * @param string      $accountKey   LTA DataMall AccountKey
+     * @param string      $uniqueUserId UniqueUserID generated from DataMall Tool
      * @param null|string $authMethod   One of the AUTH_* class constants
-     *
-     * @throws InvalidArgumentException If no authentication method was given
      */
-    public function authenticate($accountKey, $uniqueUserId = null, $authMethod = null)
+    public function authenticate($accountKey, $uniqueUserId, $authMethod = null)
     {
-        if (null === $uniqueUserId && null === $authMethod) {
-            throw new InvalidArgumentException('You need to specify authentication method!');
-        }
-
         if (null === $authMethod) {
             $authMethod = self::AUTH_HTTP_TOKEN;
         }

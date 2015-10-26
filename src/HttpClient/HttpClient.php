@@ -152,7 +152,7 @@ class HttpClient implements HttpClientInterface
     /**
      * {@inheritDoc}
      */
-    public function authenticate($accountKey, $uniqueUserId = null, $method)
+    public function authenticate($accountKey, $uniqueUserId, $method)
     {
         $this->addListener('request.before_send', array(
             new AuthListener($accountKey, $uniqueUserId, $method),

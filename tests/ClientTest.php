@@ -51,18 +51,6 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException \Lta\Exception\InvalidArgumentException
-     */
-    public function shouldThrowExceptionWhenAuthenticatingWithoutMethodSet()
-    {
-        $httpClient = $this->getHttpClientMock(array('addListener'));
-
-        $client = new Client($httpClient);
-        $client->authenticate('login', null, null);
-    }
-
-    /**
-     * @test
      */
     public function shouldClearHeadersLazy()
     {
