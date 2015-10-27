@@ -1,6 +1,6 @@
 <?php
 
-namespace Lta\Test\Api;
+namespace Cpwc\Lta\Test\Api;
 
 class BusArrivalTest extends TestCase
 {
@@ -24,6 +24,6 @@ class BusArrivalTest extends TestCase
 
     protected function getApiClass()
     {
-        return 'Lta\Api\BusArrival';
+        return 'Cpwc\Lta\Api\BusArrival';
     }
 }

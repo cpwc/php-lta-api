@@ -1,12 +1,12 @@
 <?php
 
-namespace Lta;
+namespace Cpwc\Lta;
 
-use Lta\Api\ApiInterface;
-use Lta\Exception\InvalidArgumentException;
-use Lta\Exception\BadMethodCallException;
-use Lta\HttpClient\HttpClient;
-use Lta\HttpClient\HttpClientInterface;
+use Cpwc\Lta\Api\ApiInterface;
+use Cpwc\Lta\Exception\InvalidArgumentException;
+use Cpwc\Lta\Exception\BadMethodCallException;
+use Cpwc\Lta\HttpClient\HttpClient;
+use Cpwc\Lta\HttpClient\HttpClientInterface;
 
 /**
  * Simple yet very cool PHP LTA client.

@@ -1,9 +1,9 @@
 <?php
 
-namespace Lta\Test;
+namespace Cpwc\Lta\Test;
 
-use Lta\Client;
-use Lta\Exception\BadMethodCallException;
+use Cpwc\Lta\Client;
+use Cpwc\Lta\Exception\BadMethodCallException;
 
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
@@ -14,7 +14,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client();
 
-        $this->assertInstanceOf('Lta\HttpClient\HttpClient', $client->getHttpClient());
+        $this->assertInstanceOf('Cpwc\Lta\HttpClient\HttpClient', $client->getHttpClient());
     }
 
     /**
@@ -24,7 +24,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->getHttpClientMock());
 
-        $this->assertInstanceOf('Lta\HttpClient\HttpClientInterface', $client->getHttpClient());
+        $this->assertInstanceOf('Cpwc\Lta\HttpClient\HttpClientInterface', $client->getHttpClient());
     }
 
     /**
@@ -64,7 +64,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function shouldSetHeadersLaizly()
+    public function shouldSetHeadersLazily()
     {
         $headers = array('header1', 'header2');
 
@@ -99,7 +99,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException \Lta\Exception\InvalidArgumentException
+     * @expectedException \Cpwc\Lta\Exception\InvalidArgumentException
      */
     public function shouldNotGetApiInstance()
     {
@@ -120,8 +120,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function getApiClassesProvider()
     {
         return array(
-            array('bus_arrival', 'Lta\Api\BusArrival'),
-            array('busArrival', 'Lta\Api\BusArrival'),
+            array('bus_arrival', 'Cpwc\Lta\Api\BusArrival'),
+            array('busArrival', 'Cpwc\Lta\Api\BusArrival'),
         );
     }
 
@@ -132,6 +132,6 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             $methods
         );
 
-        return $this->getMock('Lta\HttpClient\HttpClientInterface', $methods);
+        return $this->getMock('Cpwc\Lta\HttpClient\HttpClientInterface', $methods);
     }
 }

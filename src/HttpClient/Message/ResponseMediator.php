@@ -1,6 +1,6 @@
 <?php
 
-namespace Lta\HttpClient\Message;
+namespace Cpwc\Lta\HttpClient\Message;
 
 use Guzzle\Http\Message\Response;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Lta\HttpClient\Listener;
+namespace Cpwc\Lta\HttpClient\Listener;
 
 use Guzzle\Common\Event;
-use Lta\Client;
-use Lta\Exception\RuntimeException;
+use Cpwc\Lta\Client;
+use Cpwc\Lta\Exception\RuntimeException;
 
 class AuthListener
 {

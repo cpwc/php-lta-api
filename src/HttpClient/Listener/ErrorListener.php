@@ -1,12 +1,12 @@
 <?php
 
-namespace Lta\HttpClient\Listener;
+namespace Cpwc\Lta\HttpClient\Listener;
 
-use Lta\HttpClient\Message\ResponseMediator;
+use Cpwc\Lta\HttpClient\Message\ResponseMediator;
 use Guzzle\Common\Event;
-use Lta\Exception\ErrorException;
-use Lta\Exception\RuntimeException;
-use Lta\Exception\ValidationFailedException;
+use Cpwc\Lta\Exception\ErrorException;
+use Cpwc\Lta\Exception\RuntimeException;
+use Cpwc\Lta\Exception\ValidationFailedException;
 
 /**
  * @author Joseph Bielawski <stloyd@gmail.com>

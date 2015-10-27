@@ -1,8 +1,8 @@
 <?php
 
-namespace Lta\HttpClient;
+namespace Cpwc\Lta\HttpClient;
 
-use Lta\Exception\InvalidArgumentException;
+use Cpwc\Lta\Exception\InvalidArgumentException;
 use Guzzle\Http\Message\Response;
 
 /**
@@ -102,11 +102,11 @@ interface HttpClientInterface
     /**
      * Authenticate a user for all next requests.
      *
-     * @param string      $tokenOrLogin GitHub private token/username/client ID
-     * @param null|string $password     GitHub password/secret (optionally can contain $authMethod)
+     * @param string      $accountKey   LTA DataMall AccountKey
+     * @param string      $uniqueUserId UniqueUserID generated from DataMall Tool
      * @param null|string $authMethod   One of the AUTH_* class constants
      *
      * @throws InvalidArgumentException If no authentication method was given
      */
-    public function authenticate($tokenOrLogin, $password, $authMethod);
+    public function authenticate($accountKey, $uniqueUserId, $authMethod);
 }

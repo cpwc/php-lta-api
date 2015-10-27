@@ -1,9 +1,9 @@
 <?php
 
-namespace Lta\Api;
+namespace Cpwc\Lta\Api;
 
-use Lta\Client;
-use Lta\HttpClient\Message\ResponseMediator;
+use Cpwc\Lta\Client;
+use Cpwc\Lta\HttpClient\Message\ResponseMediator;
 
 /**
  * Abstract class for Api classes.

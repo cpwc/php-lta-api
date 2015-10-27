@@ -1,6 +1,6 @@
 <?php
 
-namespace Lta\Api;
+namespace Cpwc\Lta\Api;
 
 /**
  * Api interface.

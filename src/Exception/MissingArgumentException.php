@@ -1,6 +1,6 @@
 <?php
 
-namespace Lta\Exception;
+namespace Cpwc\Lta\Exception;
 
 /**
  * MissingArgumentException.

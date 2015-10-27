@@ -1,6 +1,6 @@
 <?php
 
-namespace Lta\Test\Api;
+namespace Cpwc\Lta\Test\Api;
 
 abstract class TestCase extends \PHPUnit_Framework_TestCase
 {
@@ -13,9 +13,9 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
             ->expects($this->any())
             ->method('send');
 
-        $mock = $this->getMock('Lta\HttpClient\HttpClient', array(), array(array(), $httpClient));
+        $mock = $this->getMock('Cpwc\Lta\HttpClient\HttpClient', array(), array(array(), $httpClient));
 
-        $client = new \Lta\Client($mock);
+        $client = new \Cpwc\Lta\Client($mock);
         $client->setHttpClient($mock);
 
         return $this->getMockBuilder($this->getApiClass())

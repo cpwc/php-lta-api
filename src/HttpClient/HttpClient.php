@@ -1,15 +1,15 @@
 <?php
 
-namespace Lta\HttpClient;
+namespace Cpwc\Lta\HttpClient;
 
 use Guzzle\Http\Client as GuzzleClient;
 use Guzzle\Http\ClientInterface;
 use Guzzle\Http\Message\Request;
 use Guzzle\Http\Message\Response;
-use Lta\Exception\ErrorException;
-use Lta\Exception\RuntimeException;
-use Lta\HttpClient\Listener\AuthListener;
-use Lta\HttpClient\Listener\ErrorListener;
+use Cpwc\Lta\Exception\ErrorException;
+use Cpwc\Lta\Exception\RuntimeException;
+use Cpwc\Lta\HttpClient\Listener\AuthListener;
+use Cpwc\Lta\HttpClient\Listener\ErrorListener;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
