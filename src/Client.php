@@ -12,6 +12,7 @@ use Cpwc\Lta\HttpClient\HttpClientInterface;
  * Simple yet very cool PHP LTA client.
  *
  * @method Api\BusArrival busArrival()
+ * @method Api\SBSTRopute sbstRoute()
  *
  * @author Poh Wei Cheng <calvinpohwc@gmail.com>
  */
@@ -63,9 +64,19 @@ class Client
         switch ($name) {
             case 'bus_arrival':
             case 'busArrival':
+                $this->getHttpClient()->client->setBaseUrl('http://datamall2.mytransport.sg/ltaodataservice/');
                 $api = new Api\BusArrival($this);
                 break;
-
+            case 'sbst_route':
+            case 'SBSTRoute':
+                $this->getHttpClient()->client->setBaseUrl('http://datamall.mytransport.sg/ltaodataservice.svc/');
+                $api = new Api\SBSTRoute($this);
+                break;
+            case 'smrt_route':
+            case 'SMRTRoute':
+                $this->getHttpClient()->client->setBaseUrl('http://datamall.mytransport.sg/ltaodataservice.svc/');
+                $api = new Api\SMRTRoute($this);
+                break;
             default:
                 throw new InvalidArgumentException(sprintf('Undefined api instance called: "%s"', $name));
         }
