@@ -13,7 +13,7 @@ use Cpwc\Lta\HttpClient\Listener\ErrorListener;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Performs requests on GitHub API. API documentation should be self-explanatory.
+ * Performs requests on LTA DataMall API. API documentation should be self-explanatory.
  *
  * @author Poh Wei Cheng <calvinpohwc@gmail.com>
  */

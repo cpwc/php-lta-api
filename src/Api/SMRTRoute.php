@@ -7,15 +7,13 @@ namespace Cpwc\Lta\Api;
  */
 class SMRTRoute extends AbstractApi
 {
-    public function all()
-    {
-        $results = $this->get('SMRTRouteSet', array('$inlinecount' => 'allpages'));
+    const SIZE = 50;
 
-        return $results['d']['__count'];
-    }
-
-    public function show(array $params)
+    public function show($page = 1)
     {
-        return $this->get('SMRTRouteSet', $params);
+        $skipCount = $this::SIZE * ($page - 1);
+        $results = $this->get('SMRTRouteSet', array('$skip' => $skipCount, '$inlinecount' => 'allpages'));
+
+        return $results;
     }
 }

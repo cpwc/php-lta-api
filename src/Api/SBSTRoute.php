@@ -9,22 +9,18 @@ class SBSTRoute extends AbstractApi
 {
     const SIZE = 50;
 
-    public function all()
+    public function show($page = 1)
     {
-//        $this->client->getHttpClient()->client->setBaseUrl('http://datamall.mytransport.sg/ltaodataservice.svc/');
-        $results = $this->get('SBSTRouteSet', array('$inlinecount' => 'allpages'));
-        $totalCount = $results['d']['__count'];
-        $totalPages = $totalCount / $this::SIZE;
+        $skipCount = $this::SIZE * ($page - 1);
+        $results = $this->get('SBSTRouteSet', array('$skip' => $skipCount, '$inlinecount' => 'allpages'));
+//        $totalCount = $results['d']['__count'];
+//        $totalPages = $totalCount / $this::SIZE;
 
-        for ($i = 1; $i <= $totalPages; $i++) {
-            $this->get('SBSTRouteSet', array('$skip' => ($this::SIZE * $i), '$inlinecount' => 'allpages'));
-        }
+//        for ($i = 1; $i <= $totalPages; $i++) {
+//            $temp = $this->get('SBSTRouteSet', array('$skip' => ($this::SIZE * $i), '$inlinecount' => 'allpages'));
+//            $results['d']['results'] = array_merge($results['d']['results'], $temp['d']['results']);
+//        }
 
-        return $results['d']['__count'];
-    }
-
-    public function show(array $params)
-    {
-        return $this->get('SBSTRouteSet', $params);
+        return $results;
     }
 }
